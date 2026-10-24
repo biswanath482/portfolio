@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0f172a;
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #38bdf8;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #38bdf8;
+      }
+
+      section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 80px 20px;
+      }
+
+      .home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .home-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+      }
+
+      .home-content span {
+        color: #38bdf8;
+      }
+
+      .home-content p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 15px auto;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 28px;
+        background: #38bdf8;
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.2rem;
+        color: #38bdf8;
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about img {
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      .about-content {
+        background: #1e293b;
+        padding: 25px;
+        border-radius: 15px;
+      }
+
+      .skills-container {
+        display: grid;
+        gap: 20px;
+      }
+
+      .skill {
+        background: #1e293b;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .bar {
+        height: 10px;
+        background: #334155;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .bar span {
+        display: block;
+        height: 100%;
+        background: #38bdf8;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .card {
+        background: #1e293b;
+        border-radius: 15px;
+        padding: 25px;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .card h3 {
+        color: #38bdf8;
+        margin-bottom: 10px;
+      }
+
+      .card a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .resume {
+        text-align: center;
+      }
+
+      .resume p {
+        margin-bottom: 20px;
+      }
+
+      .contact form {
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .contact input,
+      .contact textarea {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 8px;
+        background: #1e293b;
+        color: white;
+      }
+
+      .contact button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        color: #0f172a;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #020617;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .about {
+          grid-template-columns: 1fr;
+        }
+
+        .home-content h1 {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">MY PORTFOLIO</div>
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#resume">RESUME</a></li>
+          <li><a href="#contact">CONTACTS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-content">
+        <h1>HELLO I AM<span>BISWANATH PARIDA</span></h1>
+        <p>
+          A passionate Web Developer creating responsive and user-friendly
+          websites using HTML, CSS, JavaScript and modern web technologies.
+        </p>
+        <a href="#about" class="btn">EXPLORE MORE</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="title">ABOUT</h2>
+
+      <div class="about">
+        <img src="" alt="Profile" />
+
+        <div class="about-content">
+          <h3>MY INTRODUCTION</h3>
+          <p>
+            I am a dedicated web developer who enjoys building attractive,
+            responsive, and interactive websites. I love learning new
+            technologies and solving real-world problems through code.
+          </p>
+
+          <br />
+
+          <h3>EDUCATION</h3>
+          <p>Bachelor of Technology in Computer Science</p>
+
+          <br />
+
+          <h3>CERTIFICATIONS</h3>
+          <p>Web Development, JavaScript, Responsive Design</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="title">SKILLS</h2>
+
+      <div class="skills-container">
+        <div class="skill">
+          <div class="skill-info">
+            <span>HTML</span>
+            <span>95%</span>
+          </div>
+          <div class="bar"><span style="width: 95%"></span></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>CSS</span>
+            <span>90%</span>
+          </div>
+          <div class="bar"><span style="width: 90%"></span></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>JAVASCRIPT</span>
+            <span>85%</span>
+          </div>
+          <div class="bar"><span style="width: 85%"></span></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>REACT</span>
+            <span>80%</span>
+          </div>
+          <div class="bar"><span style="width: 80%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="title">PROJECTS</h2>
+
+      <div class="projects">
+        <div class="card">
+          <h3>PORTFOLIO WEBSITE</h3>
+          <p>Responsive portfolio website using HTML, CSS and JAVASCRIPT</p>
+          <a href="#">GITHUB</a>
+        </div>
+
+        <div class="card">
+          <h3>WEATHER APPLICATION</h3>
+          <p>Real-time weather application using API integration.</p>
+          <a href="#">GITHUB</a>
+        </div>
+
+        <div class="card">
+          <h3>TO DO APPLICATION</h3>
+          <p>Task management system with local storage functionality.</p>
+          <a href="#">GITHUB</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume">
+      <h2 class="title">RESUME</h2>
+
+      <p>Download my latest resume and connect with me professionally.</p>
+
+      <a
+        href="https://drive.google.com/file/d/1SspbI3Mt4iKhia7yonfXA7nk-7n7SmjE/view?usp=drive_link"
+        class="btn"
+        download
+        >DOWNLOAD RESUME</a
+      >
+      <br /><br />
+      <a
+        href="https://www.linkedin.com/in/biswanath-parida-47b40a322/"
+        target="_blank"
+        class="btn"
+        >LINKEDIN PROFILE</a
+      >
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="title">CONTACT ME</h2>
+
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">SEND MESSAGEs</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>@BISWANATH PARIDA PERSONAL PORTFOLIO</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you! Your message has been sent.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
+```
